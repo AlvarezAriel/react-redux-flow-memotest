@@ -19,7 +19,6 @@ const resolveFichas = (fichas: Fichas): Fichas => {
   let selectedFichas = fichas.filter(f => f.spin === 'selected');
   if (selectedFichas.length === 2) {
     let pairsDoMatch = selectedFichas[0].emoji === selectedFichas[1].emoji;
-    console.log('RESOLVING!! ' + (pairsDoMatch ? 'do match' : 'not matching'));
     return changeSelectedSpin(fichas, pairsDoMatch ? 'up' : 'down');
   }
 
