@@ -28,7 +28,6 @@ const resolveFichas = (fichas: Fichas): Fichas => {
 const fichas = (state: Fichas = [], action: Action): Fichas => {
   switch (action.type) {
     case 'SELECT':
-      console.log('SELECT! ' + action.id);
       return selectFicha(state, action.id);
 
     case 'RESOLVE_FICHAS':
