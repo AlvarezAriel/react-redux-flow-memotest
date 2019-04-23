@@ -9,7 +9,11 @@
   justify-content: center;
   width: 100px;
   height: 100px;
-  background-color: lightsalmon;
+  background-color: #e0e0e0;
+}
+
+.ficha.selected {
+  background-color: #ffa0a0;
 }
 
 .ficha.bocaAbajo {

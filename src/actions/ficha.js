@@ -9,13 +9,6 @@ export const selectFicha = (id: Id): FichasAction => {
   };
 };
 
-export const turnDownFicha = (id: Id): FichasAction => {
-  return {
-    type: 'TURN_DOWN',
-    id
-  };
-};
-
 export const resolveFichas = (): FichasAction => {
   return {
     type: 'RESOLVE_FICHAS'

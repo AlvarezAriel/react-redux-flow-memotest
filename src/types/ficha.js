@@ -18,5 +18,4 @@ export type FichasState = {
 
 export type FichasAction =
   | { type: 'SELECT', +id: Id }
-  | { type: 'TURN_DOWN', +id: Id }
   | { type: 'RESOLVE_FICHAS' };

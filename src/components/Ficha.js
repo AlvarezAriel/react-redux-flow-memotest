@@ -11,11 +11,19 @@ export type Props = {
   emoji: Emoji
 };
 
+const styleClassFromSpin = (spin: Spin): string => {
+  switch (spin) {
+    case 'down':
+      return 'ficha bocaAbajo';
+    case 'selected':
+      return 'ficha selected';
+    default:
+      return 'ficha';
+  }
+};
+
 const Ficha = ({ onClick, emoji, spin }: Props) => (
-  <span
-    className={spin === 'down' ? 'ficha bocaAbajo' : 'ficha'}
-    onClick={onClick}
-  >
+  <span className={styleClassFromSpin(spin)} onClick={onClick}>
     {spin === 'down' ? '' : emoji}
   </span>
 );
