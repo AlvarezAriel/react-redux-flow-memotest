@@ -1,12 +1,38 @@
+// @flow
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './components/App';
+import reducers from './reducers';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import type { Store } from './types';
+
+const initialState = {
+  fichas: [
+    { id: 1, emoji: '👽', spin: 'down' },
+    { id: 2, emoji: '👽', spin: 'down' },
+    { id: 3, emoji: '👹', spin: 'down' },
+    { id: 4, emoji: '👹', spin: 'down' }
+  ]
+};
+
+const store: Store = createStore(
+  reducers,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+const element = document.getElementById('root');
+if (!element) {
+  throw new Error("couldn't find element with id root");
+}
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  element
+);
