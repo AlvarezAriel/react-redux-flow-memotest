@@ -9,19 +9,19 @@ import type { Fichas, Id } from '../types/ficha';
 
 export type Props = {
   fichas: Fichas,
-  onFichaClick: (id: Id) => void
+  fichasSeleccionadas: Fichas,
+  onFichaClick: (id: Id, seleccionadas: Fichas) => void
 };
 
-const Tablero = ({ fichas, onFichaClick }: Props) => (
+const Tablero = ({ fichas, fichasSeleccionadas, onFichaClick }: Props) => (
   <div className="tablero">
-    {fichas &&
-      fichas.map(ficha => (
-        <Ficha
-          key={ficha.id}
-          {...ficha}
-          onClick={() => onFichaClick(ficha.id)}
-        />
-      ))}
+    {fichas.map(ficha => (
+      <Ficha
+        key={ficha.id}
+        {...ficha}
+        onClick={() => onFichaClick(ficha.id, fichasSeleccionadas)}
+      />
+    ))}
   </div>
 );
 

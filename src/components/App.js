@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import Tablero from '../containers/PlayableTablero';
+import Tablero from '../containers/TableroContainer';
 
 const App = () => (
   <div>

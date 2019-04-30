@@ -3,7 +3,9 @@
 import { combineReducers } from 'redux';
 
 import fichas from './fichas';
+import movesReducer from './moves';
 
 export default combineReducers({
-  fichas // TODO: add more reducers here if needed
+  fichas: fichas,
+  moves: movesReducer
 });
